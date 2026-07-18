@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kamal Rao — Creative Designer &amp; Video Editor</title>
+<meta name="description" content="Kamal Rao — Creative Designer, Video Editor, AI Content Creator. Premium visuals, motion graphics and marketing content." />
+
+<!-- Google Fonts: Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+<style>
+  .video-thumb.gradient-1 { background: linear-gradient(160deg,#1a2a52,#0d1224); }
+  .video-thumb.gradient-2 { background: linear-gradient(160deg,#3b1b52,#12081f); }
+  .video-thumb.gradient-3 { background: linear-gradient(160deg,#123329,#040e0b); }
+  .video-thumb.gradient-4 { background: linear-gradient(160deg,#521b2e,#1f0a11); }
+  .video-thumb.gradient-5 { background: linear-gradient(160deg,#1b2f52,#060c1a); }
+</style>
+</head>
+<body>
+
+  <!-- ============================================= -->
+  <!-- LOADING SCREEN -->
+  <!-- ============================================= -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-mark">
+        <span>K</span><span>R</span>
+      </div>
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill" id="loaderBarFill"></div>
+      </div>
+      <div class="loader-percent" id="loaderPercent">0%</div>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- CUSTOM CURSOR (desktop only, disabled on touch) -->
+  <!-- ============================================= -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ============================================= -->
+  <!-- SCROLL PROGRESS BAR -->
+  <!-- ============================================= -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============================================= -->
+  <!-- NAVIGATION -->
+  <!-- ============================================= -->
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar container">
+      <a href="#home" class="logo">Kamal<span class="dot">.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#videos" class="nav-link">Videos</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-accent nav-cta">Let's Talk</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ============================================= -->
+  <!-- HERO SECTION -->
+  <!-- ============================================= -->
+  <section class="hero" id="home">
+    <!-- Animated gradient blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <!-- Particle canvas -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="hero-hello fade-up">Hello, I'm</p>
+        <h1 class="hero-name fade-up" data-delay="1">Kamal Rao</h1>
+
+        <div class="hero-typing fade-up" data-delay="2">
+          <span class="typing-prefix">I'm a</span>
+          <span class="typing-text" id="typingText"></span>
+          <span class="typing-cursor">|</span>
+        </div>
+
+        <p class="hero-desc fade-up" data-delay="3">
+          I create premium visual experiences, AI advertisements, motion graphics,
+          and marketing content that helps brands stand out.
+        </p>
+
+        <div class="hero-buttons fade-up" data-delay="4">
+          <a href="#portfolio" class="btn btn-accent ripple">View Portfolio</a>
+          <a href="D:\portfolio video asste\Kamal_Rao_Resume_ATS.pdf" class="btn btn-outline ripple" download>Download Resume</a>
+          <a href="#contact" class="btn btn-ghost ripple">Contact Me</a>
+        </div>
+
+        <div class="hero-socials fade-up" data-delay="5">
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 2 .24 2.4.5.6.3 1 .6 1.4 1.1.4.4.8.9 1.1 1.4.3.5.4 1.2.5 2.4.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.24 2-.5 2.4-.3.6-.6 1-.1.1.4-.4.9-.8 1.1-1.1.5-.4 1.2-1.1 2.4-.06 1.3-.07 1.7-.07 4.9s0 3.6.07-4.9c.06-1.2.24-2 .5-2.4.3-.6.6-1 1.1-1.4.4-.4.9-.8 1.4-1.1.5-.3 1.2-.4 2.4-.5 1.3-.06 1.7-.07 4.9-.07z"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.02-3.05-1.85-3.05-1.85 0-2.14 1.44-2.14 2.95V21H9z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.2-3.37-1.2-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.7-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 015 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.71 1.03 1.6 1.03 2.7 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.03-1.32A10 10 0 1012 2zm0 18.1a8.1 8.1 0 01-4.12-1.13l-.3-.18-3 .78.8-2.93-.19-.3A8.1 8.1 0 1112 20.1zm4.4-6.05c-.24-.12-1.4-.7-1.62-.77-.22-.08-.37-.12-.53.12-.16.24-.6.77-.74.93-.14.16-.27.18-.5.06a6.6 6.6 0 01-1.95-1.2 7.3 7.3 0 01-1.35-1.68c-.14-.24 0-.37.1-.5.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.53-1.28-.73-1.75-.19-.46-.38-.4-.53-.4h-.45c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual fade-left" data-delay="2">
+        <div class="hero-image-wrap">
+          <!-- Replace profile image here -->
+          <img src="C:\Users\HP\Downloads\Untitled - 18 July 2026 at 14.06.11.png" alt="Kamal Rao portrait" class="hero-image" id="heroImage" />
+          <div class="hero-image-glow"></div>
+          <div class="hero-image-ring"></div>
+        </div>
+        <div class="floating-chip chip-1">🎬 Video Editing</div>
+        <div class="floating-chip chip-2">✨ AI Content</div>
+        <div class="floating-chip chip-3">🎨 Motion Design</div>
+        <div class="floating-chip chip-4">📸 Photography</div>
+        <div class="floating-chip chip-5">🤖 AI video creation</div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+      <span class="scroll-label">Scroll</span>
+    </a>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ABOUT SECTION -->
+  <!-- ============================================= -->
+  <section class="about" id="about">
+    <div class="container">
+      <p class="eyebrow fade-up">About Me</p>
+      <h2 class="section-title fade-up">The person behind the pixels</h2>
+
+      <div class="about-card glass fade-up">
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm Kamal Rao, a creative designer and video editor who blends storytelling
+              with technology. Over the past few years I've helped brands turn raw footage
+              and rough ideas into polished reels, AI-assisted advertisements, and marketing
+              campaigns that actually move people to act.
+            </p>
+            <p>
+              My work sits at the intersection of design, motion and AI — from cutting
+              cinematic edits in Premiere Pro and After Effects, to generating AI-driven
+              visuals, to building the graphics and copy that carry a brand's voice across
+              social platforms.
+            </p>
+          </div>
+
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="120" data-suffix="+">0</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="45" data-suffix="+">0</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="3" data-suffix="+">0</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="300" data-suffix="+">0</span>
+              <span class="stat-label">Reels Created</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SKILLS SECTION -->
+  <!-- ============================================= -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <p class="eyebrow fade-up">What I Work With</p>
+      <h2 class="section-title fade-up">Skills &amp; Tools</h2>
+
+      <div class="skills-grid">
+        <!-- Column 1 -->
+        <div class="skills-col fade-up">
+          <div class="skill-bar" data-percent="95">
+            <div class="skill-head"><span>Video Editing</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="92">
+            <div class="skill-head"><span>Adobe Premiere Pro</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="88">
+            <div class="skill-head"><span>After Effects</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="85">
+            <div class="skill-head"><span>Photoshop</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="80">
+            <div class="skill-head"><span>Illustrator</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="90">
+            <div class="skill-head"><span>Canva</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="skills-col fade-up" data-delay="1">
+          <div class="skill-bar" data-percent="78">
+            <div class="skill-head"><span>HTML</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="75">
+            <div class="skill-head"><span>CSS</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="68">
+            <div class="skill-head"><span>JavaScript</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="93">
+            <div class="skill-head"><span>AI Video Generation</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="89">
+            <div class="skill-head"><span>Social Media Marketing</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-percent="72">
+            <div class="skill-head"><span>Email Marketing</span><span class="skill-percent">0%</span></div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PORTFOLIO SECTION -->
+  <!-- ============================================= -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <p class="eyebrow fade-up">Selected Work</p>
+      <h2 class="section-title fade-up">Portfolio</h2>
+
+      <!-- Filter buttons -->
+      <div class="filter-bar fade-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="videos">Videos</button>
+        <button class="filter-btn" data-filter="graphics">Graphics</button>
+        <button class="filter-btn" data-filter="websites">Websites</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="posters">Posters</button>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div class="masonry-grid" id="masonryGrid">
+
+        <!-- Duplicate this card to add more projects -->
+        <div class="project-card fade-up" data-category="videos"
+             data-title="Cinematic Brand Reel"
+             data-desc="A fast-paced cinematic reel produced for a lifestyle brand's product launch, combining live footage with motion graphics and sound design."
+             data-tools="Premiere Pro, After Effects, DaVinci Resolve"
+             data-link="#">
+          <div class="project-thumb tall" style="background:linear-gradient(160deg,#1a2a52,#0d1224);">
+            <span class="project-icon">🎬</span>
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Video</span>
+            <h3 class="project-title">Cinematic Brand Reel</h3>
+          </div>
+        </div>
+        <!-- Duplicate this card to add more projects -->
+
+        <!-- Duplicate this card to add more projects -->
+        <div class="project-card fade-up" data-category="graphics"
+             data-title="Neon Product Poster Set"
+             data-desc="A series of bold poster designs built for social campaigns, focused on high-contrast type and neon gradient lighting."
+             data-tools="Photoshop, Illustrator"
+             data-link="#">
+          <div class="project-thumb" style="background:linear-gradient(160deg,#3b1b52,#12081f);">
+            <span class="project-icon">🎨</span>
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Graphic Design</span>
+            <h3 class="project-title">Neon Product Poster Set</h3>
+          </div>
+        </div>
+        <!-- Duplicate this card to add more projects -->
+
+        <!-- Duplicate this card to add more projects -->
+        <div class="project-card fade-up" data-category="websites"
+             data-title="Portfolio Web Experience"
+             data-desc="A glassmorphism-driven personal site built with vanilla HTML, CSS and JS, featuring scroll-triggered animation and a custom cursor."
+             data-tools="HTML, CSS, JavaScript"
+             data-link="#">
+          <div class="project-thumb tall" style="background:linear-gradient(160deg,#0f2f3b,#04141a);">
+            <span class="project-icon">💻</span>
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Website</span>
+            <h3 class="project-title">Portfolio Web Experience</h3>
+          </div>
+        </div>
+        <!-- Duplicate this card to add more projects -->
+
+        <!-- Duplicate this card to add more projects -->
+        <div class="project-card fade-up" data-category="branding"
+             data-title="Aurora Coffee Co. Identity"
+             data-desc="Full brand identity for a specialty coffee roastery — logo system, packaging, and social templates rooted in warm gradients."
+             data-tools="Illustrator, Photoshop, Canva"
+             data-link="#">
+          <div class="project-thumb" style="background:linear-gradient(160deg,#4a2b16,#150c05);">
+            <span class="project-icon">☕</span>
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Branding</span>
+            <h3 class="project-title">Aurora Coffee Co. Identity</h3>
+          </div>
+        </div>
+        <!-- Duplicate this card to add more projects -->
+
+        <!-- Duplicate this card to add more projects -->
+        <div class="project-card fade-up" data-category="posters"
+             data-title="Festival Event Poster"
+             data-desc="Key art and poster series for a two-day music festival, designed for both print and Instagram story formats."
+             data-tools="Photoshop, Illustrator"
+             data-link="#">
+          <div class="project-thumb tall" style="background:linear-gradient(160deg,#521b2e,#1f0a11);">
+            <span class="project-icon">🎪</span>
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Poster</span>
+            <h3 class="project-title">Festival Event Poster</h3>
+          </div>
+        </div>
+        <!-- Duplicate this card to add more projects -->
+
+        <!-- Duplicate this card to add more projects -->
+        <div class="project-card fade-up" data-category="videos"
+             data-title="AI-Generated Ad Spot"
+             data-desc="A 15-second AI-assisted advertisement combining generative visuals with traditional editing for a fintech client."
+             data-tools="Runway, Premiere Pro, After Effects"
+             data-link="#">
+          <div class="project-thumb" style="background:linear-gradient(160deg,#123329,#040e0b);">
+            <span class="project-icon">🤖</span>
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">AI Video</span>
+            <h3 class="project-title">AI-Generated Ad Spot</h3>
+          </div>
+        </div>
+        <!-- Duplicate this card to add more projects -->
+
+        <!-- Duplicate this card to add more projects -->
+        <div class="project-card fade-up" data-category="websites"
+             data-title="SaaS Landing Page"
+             data-desc="A conversion-focused landing page for a productivity SaaS product, built with performance and clarity in mind."
+             data-tools="HTML, CSS, JavaScript"
+             data-link="#">
+          <div class="project-thumb tall" style="background:linear-gradient(160deg,#1b2f52,#060c1a);">
+            <span class="project-icon">🚀</span>
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Website</span>
+            <h3 class="project-title">SaaS Landing Page</h3>
+          </div>
+        </div>
+        <!-- Duplicate this card to add more projects -->
+
+        <!-- Duplicate this card to add more projects -->
+        <div class="project-card fade-up" data-category="branding"
+             data-title="Fitness App Visual System"
+             data-desc="Icon set, color system and UI motifs designed for a fitness tracking app aimed at a younger audience."
+             data-tools="Illustrator, Photoshop"
+             data-link="#">
+          <div class="project-thumb" style="background:linear-gradient(160deg,#123b1e,#03140a);">
+            <span class="project-icon">💪</span>
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Branding</span>
+            <h3 class="project-title">Fitness App Visual System</h3>
+          </div>
+        </div>
+        <!-- Duplicate this card to add more projects -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Project Modal -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-box">
+      <button class="modal-close" id="projectModalClose" aria-label="Close">&times;</button>
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-content">
+        <span class="project-category" id="modalCategory"></span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+        <div class="modal-tools">
+          <span class="modal-tools-label">Tools Used</span>
+          <p id="modalTools"></p>
+        </div>
+        <a href="#" id="modalLink" class="btn btn-accent" target="_blank" rel="noopener">View Project</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- VIDEO SECTION (Netflix style) -->
+  <!-- ============================================= -->
+  <section class="video-section" id="videos">
+    <div class="container">
+      <p class="eyebrow fade-up">Motion Work</p>
+      <h2 class="section-title fade-up">Featured Videos</h2>
+    </div>
+
+    <div class="video-row-wrap fade-up">
+      <div class="video-row" id="videoRow">
+
+        <!-- Replace only the video source -->
+        <div class="video-card" data-video="D:\portfolio video asste\copy_1B0A4B8D-E0AB-436A-83B2-7BA2C187BEEA.mov" data-title="Brand Launch Teaser" data-category="Cinematic Edit">
+          <div class="video-thumb" style="background:linear-gradient(160deg,#1a2a52,#0d1224);">
+            <button class="play-btn" aria-label="Play video">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="video-info">
+            <h4>Brand Launch Teaser</h4>
+            <span>Cinematic Edit</span>
+          </div>
+        </div>
+        <!-- Replace only the video source -->
+
+        <!-- Replace only the video source -->
+        <div class="video-card" data-video="D:\portfolio video asste\copy_8FAB627B-0FA1-435A-A98A-040B54CA77FE.mov" data-title="Product Motion Reel" data-category="Motion Graphics">
+          <div class="video-thumb" style="background:linear-gradient(160deg,#3b1b52,#12081f);">
+            <button class="play-btn" aria-label="Play video">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="video-info">
+            <h4>Product Motion Reel</h4>
+            <span>Motion Graphics</span>
+          </div>
+        </div>
+        <!-- Replace only the video source -->
+
+        <!-- Replace only the video source -->
+        <div class="video-card" data-video="D:\portfolio video asste\copy_D956F0B9-9B97-4B30-943C-AB3B5AA80861.mov" data-title="AI Ad Campaign" data-category="AI Generated">
+          <div class="video-thumb" style="background:linear-gradient(160deg,#123329,#040e0b);">
+            <button class="play-btn" aria-label="Play video">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="video-info">
+            <h4>AI Ad Campaign</h4>
+            <span>AI Generated</span>
+          </div>
+        </div>
+        <!-- Replace only the video source -->
+
+        <!-- Replace only the video source -->
+        <div class="video-card" data-video="D:\portfolio video asste\copy_E7CBCC40-EDE1-4A35-99FE-A62DA4957A86.mov" data-title="Social Reel Highlights" data-category="Short Form">
+          <div class="video-thumb" style="background:linear-gradient(160deg,#521b2e,#1f0a11);">
+            <button class="play-btn" aria-label="Play video">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="video-info">
+            <h4>Social Reel Highlights</h4>
+            <span>Short Form</span>
+          </div>
+        </div>
+        <!-- Replace only the video source -->
+
+        <!-- Replace only the video source -->
+        <div class="video-card" data-video="assets/videos/sample-video.mp4" data-title="Event Recap Film" data-category="Documentary Style">
+          <div class="video-thumb" style="background:linear-gradient(160deg,#1b2f52,#060c1a);">
+            <button class="play-btn" aria-label="Play video">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="video-info">
+            <h4>Event Recap Film</h4>
+            <span>Documentary Style</span>
+          </div>
+        </div>
+        <!-- Replace only the video source -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Popup Player -->
+  <div class="modal-overlay" id="videoModal">
+    <div class="modal-box video-modal-box">
+      <button class="modal-close" id="videoModalClose" aria-label="Close">&times;</button>
+      <video id="modalVideo" controls playsinline></video>
+      <div class="modal-content video-modal-content">
+        <h3 id="videoModalTitle"></h3>
+        <span id="videoModalCategory"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- SERVICES SECTION -->
+  <!-- ============================================= -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="eyebrow fade-up">What I Offer</p>
+      <h2 class="section-title fade-up">Services</h2>
+
+      <div class="services-grid">
+        <div class="service-card glass fade-up card-tilt">
+          <div class="service-icon">🎬</div>
+          <h3>Video Editing</h3>
+          <p>Cinematic edits, pacing and sound design that keep viewers watching till the last frame.</p>
+        </div>
+        <div class="service-card glass fade-up card-tilt" data-delay="1">
+          <div class="service-icon">🌀</div>
+          <h3>Motion Graphics</h3>
+          <p>Kinetic typography, transitions and animated logos that bring static brands to life.</p>
+        </div>
+        <div class="service-card glass fade-up card-tilt" data-delay="2">
+          <div class="service-icon">🎨</div>
+          <h3>Graphic Design</h3>
+          <p>Posters, social creatives and visual systems designed with intention, not templates.</p>
+        </div>
+        <div class="service-card glass fade-up card-tilt" data-delay="3">
+          <div class="service-icon">🤖</div>
+          <h3>AI Advertisement</h3>
+          <p>AI-assisted ad production that blends generative visuals with human-directed craft.</p>
+        </div>
+        <div class="service-card glass fade-up card-tilt" data-delay="4">
+          <div class="service-icon">💻</div>
+          <h3>Website Design</h3>
+          <p>Fast, framework-free websites built with clean HTML, CSS and JavaScript.</p>
+        </div>
+        <div class="service-card glass fade-up card-tilt" data-delay="5">
+          <div class="service-icon">🏷️</div>
+          <h3>Brand Identity</h3>
+          <p>Logo systems, color palettes and guidelines that give a brand a consistent voice.</p>
+        </div>
+        <div class="service-card glass fade-up card-tilt" data-delay="6">
+          <div class="service-icon">📱</div>
+          <h3>Social Media Marketing</h3>
+          <p>Content calendars, campaign creatives and growth-minded social strategy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- TIMELINE SECTION -->
+  <!-- ============================================= -->
+  <section class="timeline-section" id="timeline">
+    <div class="container">
+      <p class="eyebrow fade-up">Journey</p>
+      <h2 class="section-title fade-up">Experience Timeline</h2>
+
+      <div class="timeline">
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass">
+            <span class="timeline-role">Marketing Intern</span>
+            <span class="timeline-company">Appexigo Technologies</span>
+            <p>Worked across AI content creation, social media marketing and email marketing campaigns for client brands.</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-up" data-delay="1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass">
+            <span class="timeline-role">AI Content Creation</span>
+            <span class="timeline-company">Freelance</span>
+            <p>Produced AI-generated visuals and short-form video ads for multiple small business clients.</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-up" data-delay="2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass">
+            <span class="timeline-role">Graphic Design &amp; Video Production</span>
+            <span class="timeline-company">Freelance</span>
+            <p>Delivered branding, posters and video edits across a range of industries and formats.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- TESTIMONIALS SECTION -->
+  <!-- ============================================= -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <p class="eyebrow fade-up">Kind Words</p>
+      <h2 class="section-title fade-up">Testimonials</h2>
+    </div>
+
+    <div class="testimonial-track-wrap fade-up">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card glass">
+          <p>"Kamal turned our raw footage into something that actually felt cinematic. The turnaround was fast and the communication was even better."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">R</div>
+            <div>
+              <span class="author-name">Riya Sharma</span>
+              <span class="author-role">Founder, Aurora Coffee Co.</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass">
+          <p>"The AI-driven ad Kamal produced outperformed every other creative we ran that quarter. Genuinely impressed."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">A</div>
+            <div>
+              <span class="author-name">Arjun Mehta</span>
+              <span class="author-role">Growth Lead, Finlytics</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass">
+          <p>"Great eye for detail, and the branding work he delivered felt custom in a way most templates never do."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <span class="author-name">Sneha Kapoor</span>
+              <span class="author-role">Marketing Manager, PulseFit</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass">
+          <p>"Reliable, fast and creative — exactly what we needed for a launch on a tight deadline."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">V</div>
+            <div>
+              <span class="author-name">Vikram Rao</span>
+              <span class="author-role">Founder, Festival Nights</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- CONTACT SECTION -->
+  <!-- ============================================= -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info fade-left">
+        <p class="eyebrow">Get In Touch</p>
+        <h2 class="section-title">Let's create something great</h2>
+        <p class="contact-desc">
+          Have a project in mind, or just want to say hello? My inbox is always open.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:hello@kamalrao.com" class="contact-link">
+            <span class="contact-link-icon">✉️</span> hello@kamalrao.com
+          </a>
+        </div>
+
+        <div class="contact-socials">
+          <a href="https://www.instagram.com/just.kamal___/" class="btn btn-outline contact-social-btn">Instagram</a>
+          <a href="https://www.linkedin.com/in/kamal-rao-aaa958335/" class="btn btn-outline contact-social-btn">LinkedIn</a>
+          <a href="#" class="btn btn-outline contact-social-btn">GitHub</a>
+          <a href="#" class="btn btn-outline contact-social-btn">WhatsApp</a>
+          <a href="mailto:hello@kamalrao.com" class="btn btn-outline contact-social-btn">Email</a>
+        </div>
+      </div>
+
+      <form class="contact-form glass fade-up" id="contactForm">
+        <div class="form-group">
+          <input type="text" id="formName" name="name" required placeholder=" " />
+          <label for="formName">Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="formEmail" name="email" required placeholder=" " />
+          <label for="formEmail">Email</label>
+        </div>
+        <div class="form-group">
+          <textarea id="formMessage" name="message" rows="5" required placeholder=" "></textarea>
+          <label for="formMessage">Message</label>
+        </div>
+        <button type="submit" class="btn btn-accent ripple form-submit">
+          <span>Send Message</span>
+        </button>
+        <p class="form-success" id="formSuccess">Thanks! Your message has been noted.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- FOOTER -->
+  <!-- ============================================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="footer-copy">&copy; <span id="footerYear"></span> Kamal Rao. All rights reserved.</p>
+
+      <div class="footer-socials">
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.02-3.05-1.85-3.05-1.85 0-2.14 1.44-2.14 2.95V21H9z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.2-3.37-1.2-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.7-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 015 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.71 1.03 1.6 1.03 2.7 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
+        </a>
+      </div>
+
+      <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </button>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
